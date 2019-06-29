@@ -1,0 +1,67 @@
+{extend name="index@public/base"}
+{block name="header"}
+{include file="public/nav"}
+{/block}
+{block name="cotent"}
+<table class="table">
+<tr class="active">
+<td>序号</td>
+<td>栏目名</td>
+<td>状态</td>
+<td>排序</td>
+<td>创建时间</td>
+<td>操作</td>
+</td>
+{//foreach $data as $key => $value}
+{volist name="data" id="vo" empty="没数据"}
+<tr class="active">
+<td hidden="hidden">{$vo.id}</td>
+<td>{$i}</td>
+<td><a href="{:url('category/detail',['id'=>$vo.id])}">{$vo.title}</a></td>
+<td><span id="{$vo.id}" class="status">{eq name="$vo.status" value="0"}已启用{else/}已禁用{/eq}</span></td>
+<td>{$vo.sort}</td>
+<td>{$vo:create_time}</td>
+<td>
+<a  name="change" href="{:url('category/edit',['id'=>$vo:id])}"  class="btn btn-info">修改</a>
+<a  name="change" href="{:url('category/del',['id'=>$vo:id])}" class="btn btn-info">删除</a>
+</td>
+</tr>
+{/volist}
+			</table>
+			<center>{$data|raw}</center>
+
+{/block}
+{block name="script"}
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript" src="__STATIC__/layer-v3.1.1/layer-v3.1.1/layer/layer.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(".status").click(function(){
+		var id=$(this).attr('id');
+		$.ajax({
+			url:"{:url('category/status')}",
+			data:{id:id,},
+			async:true,
+			cache:false,
+			type:"POST",
+			datatype:"json",
+			success:function(data){
+				var data=JSON.parse(data);
+				if(data.status==1){
+					$('#'+id).text(data.text);
+					layer.msg(data.info);
+				}else{
+					$('#'+id).text(data.text);
+					// alert(data.info);
+					layer.msg(data.info);
+				}
+			}
+		});
+	});
+});
+</script>
+{/block}
+

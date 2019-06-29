@@ -1,0 +1,123 @@
+{extend name="superadmin@public/base"}
+	{block name="style"}
+
+	<link rel="stylesheet" type="text/css" href="__STATIC__/superadmin/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="__STATIC__/superadmin/css/media.css">
+  
+
+<!-- 插件 -->
+  <link rel="stylesheet" type="text/css" href="__STATIC__/umeditor/themes/default/css/umeditor.min.css">
+<!-- 插件 -->
+
+
+<style type="text/css">
+    @media screen and (max-width: 1418px) {
+    .content-Box{width:1440px; }
+
+  }
+</style>
+
+	{/block}
+
+
+	{block name="header"}
+
+	{/block}
+
+
+	{block name="cotent"}
+  <div class="content-Box">
+<div class="pull-left" style="width: 84%;background-color: #ededed;">
+
+{include file="public/topnav"}
+<div  class="container" style="padding-top:10px;margin-top:60px;background-color: white;">
+    <form action="{:url('@superadmin/Notice/Noticesave')}" method="post">
+      
+    <div class="from-group">
+      <input type="hidden" name="id" value="{$data.0.id|default=''}">
+    <label for="title">公告标题:</label>
+    <input placeholder="请输入文章标题" type="text" id="title" name="title" class="form-control" value={$data.0.title|default=''}>
+  </div>
+
+  <div class="form-group" >
+    <label for="content" >公告内容:</label>
+    <script style="width: 100%;" id="editor" name="content" type="text/plain" ></script>
+    </div>
+
+  <div class="form-group">
+    <label for="remark" >备注信息:</label>
+    <textarea  name="remark" class="form-control" rows="5">{$data.0.remark|default=''}</textarea>
+    </div>
+
+<center>
+   <a href="{:url('@superadmin/Notice/Noticelist')}" class="btn btn-primary">取消</a>
+   <input type="reset" name="" class="btn btn-info">
+  <input type="submit" name="" class="btn btn-success">
+  
+
+</center>  
+  </form>
+  </div>
+
+<!--   <iframe style="width: 100%;" name="main" src ="http://www.zspt.cn" >
+
+</iframe> -->
+
+
+</div>
+</div>
+  {/block}
+
+
+	{block name="footer"}{/block}
+
+
+
+	{block name="script"}
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="__STATIC__/assets/js/jquery.min.js"></script>
+<script src="__STATIC__/assets/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" src="__STATIC__/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/umeditor/umeditor.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+// $('iframe').css('height', $(window).height() - $('.header').outerHeight() - $('.footer').outerHeight())
+$('.list-inline').css('height', $(window).height() - $('.header').outerHeight() - $('.footer').outerHeight())
+
+
+  $(".ul11").hide()
+  $(".ul12").hide()
+  $(".ul13").hide()
+  $(".ul14").hide()
+
+
+  $("#blog_1").click(function(){
+  $(".ul11").fadeToggle();
+  });
+    $("#blog_2").click(function(){
+  $(".ul12").fadeToggle();
+  });
+      $("#blog_3").click(function(){
+  $(".ul13").fadeToggle();
+  });
+        $("#blog_4").click(function(){
+  $(".ul14").fadeToggle();
+  });
+});
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+var editor = UM.getEditor('editor');
+ editor.addListener("ready", function (){
+// editor 准备好之后才可以使用
+editor.setContent('{$data.0.content|default=""}');
+  });
+});
+</script>
+{/block}

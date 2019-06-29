@@ -1,0 +1,39 @@
+{extend name="user@public\base" /}
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="user@public\css.css">
+
+{/block}
+{block name="header"}{/block}
+{block name="content"}
+<div class="right container ">
+
+<nav>
+	<span>编辑用户后台</span>&nbsp;/
+	<span>登录历史记录</span>
+</nav>
+
+<table class="table">
+	
+		<!-- <tr></tr> -->
+<tr>
+		<td>类型</td>
+		<td>登陆</td>
+		<td>IP</td>
+		<td>备注</td>
+</tr>
+
+		{foreach login_record as $vo}
+<tr>
+	<td>{if $vo.type==0}帐号退出{else/}帐号登录{/if}</td>
+	<td>{$vo.create_time}</td>
+	<td>{$vo.ip}</td>
+	<td>{$vo.remark|default=''}</td>
+</tr>
+{/foreach}	
+
+</table>
+{$login_record|raw}
+</div>
+{/block}
+{block name="footer"}{/block}
+{block name="script"}{/block}

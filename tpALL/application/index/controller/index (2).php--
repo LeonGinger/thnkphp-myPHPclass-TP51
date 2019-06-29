@@ -1,0 +1,14 @@
+<?php
+namespace app\index\controller;
+use think\Model;
+ class Index extends Controller{
+ 	public function index(){
+ 		return 'Hi';
+ 	}
+ 	public function hello(){
+
+ 		$data=model('Test')->getName();
+ 		return $this->fetch('',['data'=>$data]);
+
+ 	}
+ }

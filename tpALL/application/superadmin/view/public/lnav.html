@@ -1,0 +1,61 @@
+<style type="text/css">
+	.list-inline ul{list-style: none;background-color: #2A3F54;}
+	.list-inline{width:231px;padding-left: 10px;background-color: #2A3F54;color: white;}
+	.list-inline h3{text-align: center;}
+	.list-group-item{background-color: #2A3F54;color: white;border: none;}
+	.list-group-item li{margin: 20px;}
+	.list-group-item li a{color: #E6E6E6;}
+</style>
+
+
+<div class="list-inline col-md-4">
+	<span>&nbsp;</span>
+	<h3>管理后台首页</h3>
+		<ul class="list-group-item" >
+		<li><div class="img_heaad"><img src=""><small>Welcome,</small><span>{$Think.session.user.nickname}</span></div></li>
+		<li><span class="glyphicon glyphicon-home" aria-hidden="true"></span><a id="blog_1"  href="javascript:;" {eq name="nav" value="index"} class="text-muted" {/eq}>博客栏目<span class="caret"></span></a>
+    <ul class="ul11">
+        <li><a href="{:url('@superadmin/Category/Categoryadd')}">添加栏目</a></li>
+        <li><a href="{:url('@superadmin/Category/Categorylist')}">栏目列表</a></li>
+    </ul>
+
+		</li>
+
+
+			<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a  id="blog_2" href="javascript:;" {eq name="nav" value="index"} class="text-muted" {/eq}>用户管理<span class="caret"></span></a>
+    <ul class="ul12">
+        <li><a href="{:url('@superadmin/User/Useradd')}">添加用户</a></li>
+        <li><a href="{:url('@superadmin/User/Userlist')}">用户列表</a></li>
+    </ul>
+
+		</li>
+
+
+
+		<li><span class="glyphicon glyphicon-th" aria-hidden="true"></span><a id="blog_3" href="javascript:;" {eq name="nav" value="index"} class="text-muted" {/eq}>文章管理<span class="caret"></span></a>
+    <ul class="ul13">
+        <li><a href="{:url('@superadmin/Article/article_add')}">添加文章</a></li>
+        <li><a href="{:url('@superadmin/Article/article')}">文章列表</a></li>
+    </ul>
+
+		</li>
+
+
+		<li><span class="glyphicon glyphicon-plane" aria-hidden="true"></span><a id="blog_4" href="javascript:;" {eq name="nav" value="index"} class="text-muted" {/eq}>公告<span class="caret"></span></a>
+    <ul class="ul14">
+        <li><a href="{:url('@superadmin/Notice/Noticeadd')}">添加公告</a></li>
+        <li><a href="{:url('@superadmin/Notice/Noticelist')}">公告列表</a></li>
+    </ul>
+
+		</li>
+
+
+<!-- 
+
+		<li><a  href="{:url('@index/category/add')}"   {eq name="nav" value="add"}  class="text-muted"   {/eq}}>编辑管理</a></li>
+		<li><a  href="{:url('@index/category/edit')}"  {eq name="nav" value="edit"} class="text-muted" {/eq}>文章管理</a></li>
+		<li><a  href="{:url('@index/category/edit')}"  {eq name="nav" value="edit"} class="text-muted" {/eq}>公告</a></li>
+		 -->
+	</ul>
+	</div>
+

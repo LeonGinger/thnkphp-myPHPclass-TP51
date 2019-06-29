@@ -1,0 +1,140 @@
+{extend name="superadmin@public/base"}
+	{block name="style"}
+
+	<link rel="stylesheet" type="text/css" href="__STATIC__/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="__STATIC__/superadmin/css/media.css">
+<style type="text/css">
+
+
+
+</style>
+
+	{/block}
+
+
+	{block name="header"}
+
+	{/block}
+
+
+	{block name="cotent"}
+  <div class="content-Box">
+<div class="pull-left container-fluid col-md-10" style="background-color: #ededed;">
+
+{include file="public/topnav"}
+
+<nav>
+  <span>{$title}</span>&nbsp;/
+  <span>我的文章</span>
+</nav>
+
+<table class="table">
+<thead class="active">
+    <!-- <tr></tr> -->
+<tr>
+    <td>序号</td>
+    <td class="hidden-xs">文章分类</td>
+    <td>文章标题</td>
+    <td class="hidden-xs">点击量</td>
+    <td class="hidden-xs">评论量</td>
+    <td>启用状态</td>
+    <td class="hidden-xs">创建时间</td>
+    <td class="hidden-xs">上次更新</td>
+    <td>操作</td>
+</tr>
+</thead>
+  {volist name='article_list' id='vo' empty="没数据"}
+<tr>
+  <td>{$i}</td>
+  <td>{$vo.categoryInfo.title}</td>
+  <td><a target="view_window" href="{:url('@index/index/details/id/')}{$vo.id}">{$vo.title}</a></td>
+  <td class="hidden-xs">{$vo.clicks}</td>
+  <td class="hidden-xs">{$vo.comment_total}</td>
+  <td><span id="{$vo.id}" class="status">{eq name="$vo.status" value="0"}已启用{else/}已禁用{/eq}</span></td>
+  <td class="hidden-xs">{$vo.create_time}</td>
+  <td class="hidden-xs">{$vo.update_time}</td>
+  <td><a href="{:url('@superadmin/Article/article_edit',['id'=>$vo.id])}">更新</a>
+    <a href="{:url('@superadmin/Article/article_del',['id'=>$vo.id])}">删除</a>
+  </td>
+</tr>
+{/volist} 
+
+</table>
+<center>{$article_list|raw}</center>
+
+<!--   <iframe style="width: 100%;" name="main" src ="http://www.zspt.cn" >
+
+</iframe> -->
+
+
+</div>
+</div>
+  {/block}
+
+
+	{block name="footer"}{/block}
+
+
+
+	{block name="script"}
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="__STATIC__/assets/js/jquery.min.js"></script>
+<script src="__STATIC__/assets/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" src="__STATIC__/layer-v3.1.1/layer-v3.1.1/layer/layer.js"></script>
+<script type="text/javascript">
+$(function(){
+  $(".status").click(function(){
+    var id=$(this).attr('id');
+    $.ajax({
+      url:"{:url('status')}",
+      data:{id:id,},
+      async:true,
+      cache:false,
+      type:"POST",
+      datatype:"json",
+      success:function(data){
+        var data=JSON.parse(data);
+        if(data.status==1){
+          $('#'+id).text(data.text);
+          layer.msg(data.info);
+        }else{
+          $('#'+id).text(data.text);
+          // alert(data.info);
+          layer.msg(data.info);
+        }
+      }
+    });
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+// $('iframe').css('height', $(window).height() - $('.header').outerHeight() - $('.footer').outerHeight())
+$('.list-inline').css('height', $(window).height() - $('.header').outerHeight() - $('.footer').outerHeight())
+
+
+  $(".ul11").hide()
+  $(".ul12").hide()
+  $(".ul13").hide()
+  $(".ul14").hide()
+
+
+  $("#blog_1").click(function(){
+  $(".ul11").fadeToggle();
+  });
+    $("#blog_2").click(function(){
+  $(".ul12").fadeToggle();
+  });
+      $("#blog_3").click(function(){
+  $(".ul13").fadeToggle();
+  });
+        $("#blog_4").click(function(){
+  $(".ul14").fadeToggle();
+  });
+});
+</script>
+{/block}

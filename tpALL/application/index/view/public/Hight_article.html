@@ -1,0 +1,16 @@
+<style type="text/css">
+.list-group-item{background-color: #f5f5f5;
+	border:none;
+    border-bottom: 1px solid #c8c8c8;}
+.list-group-item.active{background-color: #222;border-color: #222; }
+.list-group-item.active:hover{background-color: #222;}
+</style>
+<ul class="list-group">
+	<li class="list-group-item active">热门推荐</li>
+		{foreach recommend_list as $vo}
+		<li class="list-group-item">
+	<span class="badge">点击量:{$vo.clicks|default=''}</span>
+	<a href="{:url('@index/index/details',['id'=>$vo.id])}">{$vo.title|default=''}</a>
+</li>
+{/foreach}
+</ul>

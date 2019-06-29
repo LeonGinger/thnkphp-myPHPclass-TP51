@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<!-- 	<link rel="stylesheet" type="text/css" href="__STATIC__/boot/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="__STATIC__/cropavatar/css/cropper.min.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/cropavatar/css/main.css">
+</head>
+<!-- <style type="text/css">
+.img_suss{
+	width: 100px;
+	position: absolute;
+	top:10px;
+	left: 100px;
+}
+#preview{
+width: 50px;height: 50px;
+}
+</style> -->
+<body class="page-header-fixed">
+<div class="form-group">
+<div class="col-md-2">
+<a class="btn red btn-outline sbold avatar-view"><i class="glyphicon glyphicon-folder-open"></i> 选择图片</a><img align="" src="" id="img-upload-suss" class="img_suss">
+</div>
+</div>
+{include file="public/file-thumd-modal"}
+</body>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/cropavatar/js/cropper.min.js"></script>
+<script type="text/javascript" src="__STATIC__/cropavatar/js/main.js"></script>
+<script type="text/javascript" language="javascript">
+    $(function () {
+        var $imgDiv = $('.avatar-wrapper');
+        $imgDiv.find('img').cropper({aspectRatio:NaN}); //设置自由裁剪， NaN 为自由裁剪，此为覆盖默认 1:1比例裁剪框
+
+    })
+</script>
+
+</html>

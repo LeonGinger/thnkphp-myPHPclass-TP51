@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	{load href="__STATIC__/assets/css/bootstrap.min.css"}
+	{block name="style"}
+	{/block}
+</head>
+<style type="text/css">
+	*{margin:0;padding: 0;}
+	
+</style>
+<body>
+<div class="header">
+{include file="superadmin@public/lnav" /}
+{block name="header"}{/block}
+</div>
+<div class="cotent">
+{block name="cotent"}{/block}
+</div>
+<div class="footer">
+{block name="footer"}{/block}
+</div>
+</body>
+{block name="script"}
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+{/block}
+</html>

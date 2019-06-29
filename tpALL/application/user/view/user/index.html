@@ -1,0 +1,30 @@
+{extend name="user@public\base" /}
+{block name="style"}
+<!-- <link rel="stylesheet" type="text/css" href="user@public\css.css"> -->
+
+{/block}
+{block name="header"}{/block}
+{block name="content"}
+
+<div class="right container ">
+<nav>
+	<span>编辑用户后台</span>&nbsp;/
+	<span>个人资料</span>
+</nav>
+
+<table class="table">
+	
+		<!-- <tr></tr> -->
+		<tr><td>上次登录时间:{$last_time}<a href="login_log">查看最近登录记录</a></td></tr>
+		<tr><td>头像:{$user_info.head_img|default='暂未设置'}</td></tr>
+		<tr><td>昵称:{$user_info.nickname|default='暂未设置'}</td></tr>
+		<tr><td>帐号:{$user_info.username|default='暂未设置'}</td></tr>
+		<tr><td>手机:{$user_info.phone|default='暂未设置'}</td></tr>
+		<tr><td>邮箱:{$user_info.email|default='暂未设置'}</td></tr>
+		<tr><td>个性签名:<textarea style="width: 100%;">{$user_info.remark}</textarea></td></tr>
+
+</table>
+</div>
+{/block}
+{block name="footer"}{/block}
+{block name="script"}{/block}

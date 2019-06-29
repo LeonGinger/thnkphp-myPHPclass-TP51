@@ -1,0 +1,73 @@
+{extend name="index@public/base"}
+
+	{block name="style"}
+	<style type="text/css">
+		ul{list-style: none;text-align: center;}
+
+
+	</style>
+	{/block}
+</head>
+
+{block name="header"}
+
+
+{/block}
+
+{block name="cotent"}
+<div class="container-fluid">
+	 <div style="padding-top: 62px;" class="row col-md-2" >
+<ul class="list-group-item">
+		
+		<li><a {eq name='nav' value='index'}class="active list-group-item"   {/eq} href="{:url('@link/Websitelink/index')}">网站链接</a></li>
+		<li><a {eq name='nav' value='add'}class="active list-group-item"  {/eq} href="add">添加链接</a></li>
+		<li><a  {eq name='nav' value='list'}class="active list-group-item"  {/eq} href="{:url('@link/Websitelink/list')}">链接列表</a></li>
+
+</ul>
+</div>
+
+<div style="margin-left: 10px;" class="row col-md-10">
+	<center><h2>网站链接列表</h2></center>
+<table class="table">
+
+<tr class="active">
+<td>序号</td>
+<td>网站名</td>
+<!-- <td>网站LOGO</td> -->
+<td>网站链接</td>
+<td>备注</td>
+<!-- <td>状态</td> -->
+<!-- <td>上一次修改时间</td> -->
+<!-- <td>操作</td> -->
+
+</td>
+{//foreach $data as $key => $value}
+{volist name="data" id="vo" empty="没数据"}
+<tr class="active">
+<td hidden="hidden">{$vo.id}</td>
+<td>{$i}</td>
+<td>{$vo.website_name}</td>
+<!-- <td>{$vo.website_logo}</td> -->
+<td><a href="{$vo.href}">{$vo.href}</a></td>
+<!-- <td><span id="{$vo.id}" class="status">{eq name="$vo.status" value="0"}已启用{else/}已禁用{/eq}</span></td> -->
+
+<td>{$vo.remark}</td>
+<!-- <td>{$vo:update_time}</td> -->
+
+<!-- <td>
+<a  name="change" href="{:url('link/edit',['id'=>$vo:id])}"  class="btn btn-info">修改</a>
+<a  name="change" href="{:url('link/del',['id'=>$vo:id])}" class="btn btn-info">删除</a>
+</td> -->
+</tr>
+{/volist}
+			</table>
+			<center>{$data|raw}</center>
+		</div>
+</div>		
+{/block}
+{block name="footer"}{/block}
+
+{block name="script"}
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+{/block}

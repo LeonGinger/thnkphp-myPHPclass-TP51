@@ -1,0 +1,25 @@
+{extend name="index@public/base"}
+{block name="header"}
+{include file="public/nav"}
+{/block}
+<div  class="container-fluid">
+		<div>
+{block name="cotent"}
+{notempty name="data"}
+<table class="table">
+	<tr><td>栏目名:{$data:title}</td></tr>
+	<tr><td>备注:{$data:remark}</td></tr>
+	<tr><td>状态:{$data:status}</td></tr>
+	<tr><td>排序:{$data:sort}</td></tr>
+	<tr><td>创建时间:{$data:create_time}</td></tr>
+</table>
+{else/}<script type="text/javascript">alert("非法参数");window.location.href="{:url('@index/category/index')}";</script>>
+{/notempty}
+{/block}
+		</div>
+  </div>
+  </div>
+{block name="script"}
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+{/block}

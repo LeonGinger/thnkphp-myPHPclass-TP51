@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/boot/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/cropper/cropavatar/css/cropper.min.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/cropper/cropavatar/css/main.css">
+</head>
+//id="art-thumb" 返回的图片地址
+
+//id="preview" 返回的 img 小图
+
+<body class="page-header-fixed">
+
+     <div class="form-group">
+
+     <label class="control-label col-md-2">浓缩图片</label>
+
+            <div class="col-md-3"><input type="text" name="art_thumb" id="art-thumb" class="form-control"></div>
+
+            <div class="col-md-2">
+
+                     {// 调用 avatar-view}
+
+                    <a class="btn red btn-outline sbold avatar-view"><i class="glyphicon glyphicon-folder-open"></i> 选择图片</a>
+
+            </div>
+
+            <div class="col-md-3"><div id="preview"></div></div>
+
+     </div>
+
+{// file-thumd-modal.html 可以引用到其他页面要用到的地方}
+
+{// 引入上传图片modal}
+
+{include file="public/file-thumd-modal"}
+
+
+
+</body>
+
+<script type="text/javascript" src="__STATIC__/boot/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/boot/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="__STATIC__/boot/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/cropper/cropavatar/js/cropper.min.js"></script>
+<script type="text/javascript" src="__STATIC__/cropper/cropavatar/js/main.js"></script>
+<script type="text/javascript" language="javascript">
+
+    $(function () {
+
+        var $imgDiv = $('.avatar-wrapper');
+
+
+        $imgDiv.find('img').cropper({aspectRatio:NaN}); //设置自由裁剪， NaN 为自由裁剪，此为覆盖默认 1:1比例裁剪框
+
+    })
+
+</script>
+</html>
+
+

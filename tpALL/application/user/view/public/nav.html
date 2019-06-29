@@ -1,0 +1,7 @@
+<ul class="list-group-item">
+		<li><span>{$Think.session.user.nickname}</span>的后台</li>
+		<li><a {eq name='nav_left' value='index'}class="active list-group-item"   {/eq} href="{:url('@user/user/index')}">个人信息</a></li>
+		<li><a {eq name='nav_left' value='article'}class="active list-group-item"  {/eq} href="article">我的文章</a></li>
+		<li><a  {eq name='nav_left' value='article_add'}class="active list-group-item"  {/eq} href="{:url('@user/user/article_add')}">发表文章</a></li>
+
+</ul>

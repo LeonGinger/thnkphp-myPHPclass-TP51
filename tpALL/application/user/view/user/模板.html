@@ -1,0 +1,39 @@
+{extend name="user@public\base" /}
+{block name="style"}
+<style type="text/css">
+.left{
+	width: 200px;
+	float: left;
+}
+.left ul{list-style: none;}
+.right{
+	float: left;
+}
+</style>
+
+{/block}
+{block name="header"}
+{include file="user@public/header" /}
+{/block}
+{block name="content"}
+{include file="user@public/usertop" /}
+<div class="">
+
+
+</div>
+
+<div class="left">{include file="user@public/nav" /}</div>
+<div class="right">
+
+
+
+
+
+</div>
+<div style="clear:both"></div>
+
+{/block}
+{block name="footer"}
+{include file="user@public/footer" /}
+{/block}
+{block name="script"}{/block}

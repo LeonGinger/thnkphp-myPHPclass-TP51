@@ -1,0 +1,37 @@
+
+
+
+环境:php-7.0.12.nts+apache
+mysql:5.5.53
+
+1、方法整合-》在已有项目上整合所有模块（controller， model， validate  ，view）
+2、文章查询（需要联合用户表链接查询） 导致的session问题  
+
+parent::__construct();
+$this->user=session('user');  
+
+导向已有项目上的公共模块下的指向方法
+
+3、视图中
+ ueditor-百度富文本插件
+
+
+	
+ cropper-百度图传插件  
+{
+1、file-thumd-modal， imge-upload，imgup
+2、extension=php_exif.dll      ; Must be after mbstring as it depends on it     ← php.ini开启
+3、
+
+}
+重新整合 调用
+
+4、useradmin-项目名   改superadmin-项目名
+
+
+5、public\static\superadmin    包含项目用的css js
+
+6、tp5120190627114455.sql   数据库备份   数据库article user_id =1   全部文章修改user_id=1 ，  超级管理员id必须为1
+0x01:利用jq课程数据库  填充数据  修改原数据库不足（包括user_id  status字段）
+
+7、文章列表 每页20条数据

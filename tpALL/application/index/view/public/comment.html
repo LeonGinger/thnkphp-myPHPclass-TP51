@@ -1,0 +1,81 @@
+<!-- begin comment -->
+<div class="panel panel-default">
+	<div class="panel-heading">评论文章</div>
+	<div class="panel-body" style="margin:0 3%;">
+		<div class="mt-20" id="ct">
+			<div id="err"></div>
+			<div><textarea id="editor" rows="5" style="width: 100%;"></textarea></div>
+			<div class="text-right">
+				<button id="addComment" class="btn btn-primary">发表评论</button>
+			</div>
+		</div>
+		<br>
+<div>
+	<ul class="list-group">
+		{foreach article_comment_list as $vo}
+		<li class="list-group-item">
+			<p><a class="comment-author" data-href="#">
+				{if !empty($vo.userInfo.nickname)}{$vo.userInfo.nickname|default=''}{else/}
+						{$vo.userInfo.username|default='匿名用户'}
+				{/if}</a>
+				<time class="f-r">评论时间:{$vo.create_time|default=''}</time></p>
+				<p>{$vo.content|default=''}</p>
+		</li>
+		{/foreach}
+	</ul>
+	</div>
+</div>
+</div>
+
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="__STATIC__/layer-v3.1.1/layer-v3.1.1/layer/layer.js"></script>
+<script type="text/javascript">
+	//add comment
+	$('#addComment').click(function(){
+		var editor=$('#editor');
+		if(editor.val()==''){
+			layer.msg('不能为空');return false;
+		}
+		var userid='{$Think.session.user.id}';
+		if(userid==null || userid==undefined || userid==''){userid=0;}
+		var data={
+			article_id:"{$details.id|default=''}",
+			user_id:userid,
+			content:editor.val(),
+		};
+		
+		console.log(data);
+		var ajax = new XMLHttpRequest()
+	$.ajax({
+			url:"{:url('@index/article/add_comment')}",
+			data:data,
+			type:"POST",
+			dataType:"json",
+			timeout:60000,
+			headers: {
+        Accept: "application/json; charset=utf-8"
+    },
+			beforeSend: function(request) {
+            request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+         },
+
+			success:function(res){
+				if(res.code==0){
+					$('#err').html('<span style="color:red">评论成功,刷新可见</span>');
+					
+					 layer.msg(res.msg+'刷新可见');
+
+					editor.val('');
+				}else{
+					 layer.msg(res.msg);
+				}
+			},
+			error:function(xhr,textstatus,thrown){
+				console.log(xhr);
+				 layer.msg('Status:'+xhr.status+','+xhr.statusText+',稍后再试!');
+			}
+		});
+	});
+</script>

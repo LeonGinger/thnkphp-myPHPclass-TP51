@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>增删改查</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/assets/css/bootstrap.min.css">
+</head>
+
+<body>
+<div  class="container-fluid">
+	{include file="category/nav"}
+		<div>
+			<table class="table">
+<tr class="active">
+<td>序号</td>
+<td>栏目名</td>
+<td>状态</td>
+<td>排序</td>
+<td>创建时间</td>
+<td>操作</td>
+</tr>
+{foreach $data as $key => $value}
+<tr class="active">
+<td>{$value:id}</td>
+<td><a href="{:url('category/detail',['id'=>$value:id])}">{$value:title}</a></td>
+<td>{$value:status}</td>
+<td>{$value:sort}</td>
+<td>{$value:create_time}</td>
+<td>
+<a  name="change" href="{:url('category/detail',['id'=>$value:id])}"  class="btn btn-info">修改</a>
+<a  name="change" href="{:url('category/del',['id'=>$value:id])}" class="btn btn-info">删除</a>
+</td>
+</tr>
+{/foreach}
+			</table>
+		</div>
+	}
+
+  </div>
+
+</body>
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,102 @@
+{extend name="user@public\base" /}
+<meta charset="utf-8">
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/ueditor/themes/default/css/umeditor.min.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/cropper/cropavatar/css/cropper.min.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/cropper/cropavatar/css/main.css">
+<style type="text/css">
+#preview img{width: 100%;}
+</style>
+{/block}
+{block name="header"}{/block}
+{block name="content"}
+<div class="right_text container ">
+<nav><span>文章管理</span>/<span>发布文章</span></nav>
+		<form action="{:url('@user/user/article_add')}" method="post">
+		<label for="exampleInput">文章内容</label>
+		<div class="from-group">
+		
+		 <script style="width: 100%; height:400px;" id="editor" name="content" type="text/plain" onchange="check()"></script>
+
+	</div>
+	<br>
+</div>	
+
+<div class="right_info container">
+
+			<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+			<div class="info_1" id="info_1">
+	     <label for="exampleInputBT">文章标题</label>
+		<input type="text" id="" name="title" class="form-control" placeholder="请输入文章标题">
+		 <label for="exampleInput">文章分类</label>
+		<select id="category_id" name="category_id" class="form-control" placeholder="公司历史">
+			{foreach category_list as $val}
+			<option value={$val.id|default=''}>{$val.title|default=''}</option>
+			{/foreach}
+		</select> 
+			<label for="exampleInputEmail1">文章LOGO</label>
+<div class="page-header-fixed">
+	
+		<div class="from-group">
+		<div class="row">
+		<div class="col-md-5">
+			<input type="text" name="cover_img" readonly id="logo" class="form-control">
+		</div>
+	<div class="col-md-2"><button type="button" class="btn red btn-outline sbold avatar-view">
+	<i class="glyphicon glyphicon-folder-open"></i>选择图片
+	</button></div>
+	<div class="col-md-3">
+<div id="preview">  </div>
+</div>
+		</div>
+</div>
+
+{include file="public/file-thumd-modal"}
+	
+</div>
+		
+		<label for="exampleInput">文章描述</label>
+		<input type="text" id="describe" name="describe" class="form-control" placeholder="请输入文章描述">
+		<center><button id="addArticle" type="submit" name="" class="btn btn-default">文章发表</button></center>
+</div>
+
+</div>
+
+  </form>
+  
+
+</div>
+{/block}
+{block name="footer"}{/block}
+{block name="script"}
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script type="text/javascript" src="__STATIC__/ueditor/umeditor.min.js"></script>
+<script type="text/javascript" src="__STATIC__/ueditor/umeditor.config.js"></script>
+
+<script type="text/javascript" src="__STATIC__/cropper/cropavatar/js/cropper.min.js"></script>
+<!-- <script type="text/javascript" src="__STATIC__/cropper/cropavatar/js/main.js"></script> -->
+
+<script type="text/javascript">
+var editor = UM.getEditor('editor');
+
+$(document).ready(function(){
+ editor.addListener("ready", function (){
+// editor 准备好之后才可以使用
+ editor.setContent('');
+	});
+});
+</script>
+<!-- 88 -->
+<script type="text/javascript">
+$(document).ready(function(){
+	var a=1;
+$(".glyphicon-list").click(function(){
+$("chanheight").css("height", "300px");
+    // $(".info_1").slideToggle("info_1");
+    $('.info_1').animate({width:'toggle'},350);
+ });
+});
+</script>
+{/block}

@@ -1,0 +1,97 @@
+{extend name="index@public/base"}
+
+{block name="header"}
+{include file="common@public/header" /}
+<style type="text/css">
+body{background-color: #eceff1;}
+.media{border-bottom:1px dashed black;}
+.right{padding-left: 40px; width: 200px;}
+.article{width: 100%;}
+</style>
+{/block}
+
+{block name="cotent"}
+{// if !empty($Think.session.user)}
+	{// if !empty($Think.session.user.nickname)}
+		{// $Think.session.user.nickname}
+	{// else/}
+		{// $Think.session.user.username}
+	{// /if}
+	<!-- <a href="{:url('@user/login/out')}">退出登录</a> -->
+	{// else/}
+<!-- <a href="{:url('@user/login')}">登录</a>
+<a href="{:url('@user/login/register')}">注册</a> -->
+
+{// /if}
+<div class="container" style="margin-top: 40px">
+<div class="row">
+<div class="col-md-9">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{:url('@index')}">{$details.categoryName|default='新闻列表'}</a></li>
+			<li class="breadcrumb-item active">最新文章</li>
+			
+</ol>
+<div class="pull-left article">
+<!-- 	-----begin -->
+	<div class="panel panel-default">
+		<div class="panel-body">
+		<h2 class="text-center">{$details.title|default=''}</h2>
+		<p class="text-center">
+			<span class="d_time">发布时间:{$details.create_time|default=''}</span>&nbsp;&nbsp;
+			<span>作者:<a href="{:url('@index/index/author',['id'=>$details.user_id])}">{$details.nickname|default=''}</a></span>&nbsp;&nbsp;
+			<span>阅读量:{$details.clicks|default=''}</span>
+		</p>
+{notempty name="details.describe"}
+<div class="panel panel-default">
+	<div class="panel-body">
+		摘要:{$details.describe}
+	</div>
+</div>
+{/notempty}
+<div class="content"><center><img src="{$details.cover_img|default=''}"></center>{$details.content|default=''|raw}</div>
+</div>
+<center>
+<nav>
+	<ul class="pager">
+		
+		<li class="preious {empty name='last_article.id'}hidden{/empty}" >
+			<a  href="{:url('@index/index/details',['id'=>$last_article.id])}">
+			<span>&larr;</span>上一篇:{$last_article.title|default=''}</a>
+		</li>
+		<li class="preious {empty name='next_article.id'}hidden{/empty}">
+			<a href="{:url('@index/index/details',['id'=>$next_article.id])}">
+			下一篇:{$next_article.title|default=''}<span>&rarr;</span></a>
+		</li>
+		
+	</ul>
+</nav>
+</center>
+<!--   ------end -->
+</div>
+</div>
+
+
+
+</div>
+
+<div class="pull-left right">
+<div class="cold-md-3">{include file="index@public/Hight_article" /}</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+{include file="index@public/comment" /}
+
+
+{/block}
+{block name="footer"}
+
+{include file="common@public/footer" /}
+
+{/block}
+
+{block name="script"}
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery-3.3.1.min.js"></script>
+{/block}

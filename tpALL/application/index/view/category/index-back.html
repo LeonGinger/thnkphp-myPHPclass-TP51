@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>增删改查</title>
+	{load href="__STATIC__/assets/css/bootstrap.min.css"}
+</head>
+
+<body>
+<div  class="container-fluid">
+	{include file="category/nav"}
+	
+
+		<div>
+			<table class="table">
+<tr class="active">
+<td>序号</td>
+<td>栏目名</td>
+<td>状态</td>
+<td>排序</td>
+<td>创建时间</td>
+<td>操作</td>
+</td>
+{//foreach $data as $key => $value}
+{volist name="data" id="vo" empty="没数据"}
+<tr class="active">
+<td hidden="hidden">{$vo.id}</td>
+<td>{$i}</td>
+<td><a href="{:url('category/detail',['id'=>$vo:id])}">{$vo:title}</a></td>
+<td><span id="{$vo.id}" class="status">{eq name="vo.status" value="0"}已启用{else/}已禁用{/eq}</span></td>
+<td>{$vo:sort}</td>
+<td>{$vo:create_time}</td>
+<td>
+<a  name="change" href="{:url('category/edit',['id'=>$vo:id])}"  class="btn btn-info">修改</a>
+<a  name="change" href="{:url('category/del',['id'=>$vo:id])}" class="btn btn-info">删除</a>
+</td>
+</tr>
+{/volist}
+			</table>
+			<center>{$data}</center>
+	<!--分页'$data|raw' 不行??? 5.1版本的模板安全限制-->
+		</div>
+  </div>
+  </div>
+</body>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="__STATIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__STATIC__/index.js"></script> 
+</html>

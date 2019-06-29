@@ -1,0 +1,13 @@
+<div>
+	<h3>
+		<img src="{if !empty($Think.session.user.head_img)}
+		{else}
+		__STATIC__/logo.png{/if}" alt="{$Think.session.user.nickname}">
+		<span>{$Think.session.user.nickname}&nbsp;--编辑管理页面</span>
+	</h3>
+	<p>
+		<span>发表文章:<em>{$article_num|default='0'}</em>篇</span>
+		<span>获取点击量:<em>{$click_num|default='0'}</em>个</span>
+		<span>获得点赞量:<em>{$praise_num|default='0'}</em>个</span>
+	</p>
+</div>

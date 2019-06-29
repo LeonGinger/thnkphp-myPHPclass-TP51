@@ -1,0 +1,41 @@
+{extend name="index@public/base"}
+
+	{block name="style"}
+	<style type="text/css">
+	.from-group{margin:10px;}
+	input{width: 100%;}
+</style>
+	{/block}
+</head>
+
+{block name="header"}
+{include file="public/nav"}
+
+{/block}
+
+{block name="cotent"}
+<div  class="container-fluid">
+		<form action="{:url('@link/WebsiteLink/save')}" method="post">
+		<div class="from-group">
+		<input  class="form-control" type="text" id="title" name="website_name" class="from-control" placeholder="站点名称">
+	</div>
+<!-- 		<div class="from-group">
+		<input  class="form-control" type="text" id="title" name="website_logo" class="from-control" placeholder="网站logo">
+	</div> -->
+	<div class="from-group">
+		<input  class="form-control" type="text" id="title" name="href" class="from-control" placeholder="链接地址">
+	</div>
+	<div class="form-group">
+    <label for="title">备注信息</label>
+		<textarea name="remark" class="form-control" rows="5" placeholder="输入网站备注消息"></textarea>
+		</div>
+<center><input type="submit" name="" class="btn btn-default"></center>	
+  </form>
+  </div>
+{/block}
+{block name="footer"}{/block}
+
+{block name="script"}
+<script type="__STATIC__/assets/js/jquery.min.js"></script>
+<script type="__STATIC__/assets/js/bootstrap.min.js"></script>
+{/block}

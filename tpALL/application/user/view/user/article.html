@@ -1,0 +1,51 @@
+{extend name="user@public\base" /}
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="user\public\css.css">
+
+{/block}
+{block name="header"}{/block}
+{block name="content"}
+<div class="right container">
+
+<nav>
+	<span>{$title}</span>&nbsp;/
+	<span>我的文章</span>
+</nav>
+
+<table class="table">
+
+		<!-- <tr></tr> -->
+<tr>
+		<td>序号</td>
+		<td class="hidden-xs">文章分类</td>
+		<td>文章标题</td>
+		<td class="hidden-xs">点击量</td>
+		<td class="hidden-xs">评论量</td>
+		<td>启用状态</td>
+		<td class="hidden-xs">创建时间</td>
+		<td class="hidden-xs">上次更新</td>
+		<td>操作</td>
+</tr>
+
+	{volist name='article_list' id='vo' empty="没数据"}
+<tr>
+	<td>{$i}</td>
+	<td>{$vo.categoryInfo.title}</td>
+	<td>{$vo.title}</td>
+	<td class="hidden-xs">{$vo.clicks}</td>
+	<td class="hidden-xs">{$vo.comment_total}</td>
+	<td><a href="{:url('@user/user/article_status',['id'=>$vo.id])}">{$vo.status}</a></td>
+	<td class="hidden-xs">{$vo.create_time}</td>
+	<td class="hidden-xs">{$vo.update_time}</td>
+	<td><a href="{:url('@user/user/article_edit',['id'=>$vo.id])}">更新</a>
+		<a href="{:url('@user/user/article_del',['id'=>$vo.id])}">删除</a>
+	</td>
+</tr>
+{/volist}	
+
+</table>
+{$article_list}
+</div>
+{/block}
+{block name="footer"}{/block}
+{block name="script"}{/block}
