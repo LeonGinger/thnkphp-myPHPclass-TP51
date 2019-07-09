@@ -62,7 +62,7 @@ superadmin-(仅整合的后台管理)
 
 ### 注:存在的BUG  数值越界等问题
 <br>
-<img width="100px;" src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(1).png">
+<img  src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(2).png">
 <br>
 
 
