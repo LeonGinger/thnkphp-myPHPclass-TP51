@@ -25,7 +25,7 @@ superadmin-(仅整合的后台管理)
 
 >>  \index       网站前台
 
->>  \superadmin  网站后天管理
+>>  \superadmin  网站后台管理
 
 >>  \user        网站单用户文章管理
 
