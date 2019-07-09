@@ -37,9 +37,9 @@ superadmin-(仅整合的后台管理)
 ### 网站前端[]<br><br>
 网站的导航栏目的更增减、文章的Top榜、分类、详情和评论模块
 <br>
-<img  src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(6).jpg">
+<img  src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(6).png">
 <br>
-<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(7).jpg">
+<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(7).png">
 <br>
 网站的后端包括 单用户的文章管理系统和超级管理员的后台管理系统
 <br>
@@ -49,11 +49,11 @@ superadmin-(仅整合的后台管理)
 文章的增、删、改、查<br><br>
 }
 <br>
-<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(5).jpg">
+<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(5).png">
 <br>
-<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(3).jpg">
+<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(3).png">
 <br>
-<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(4).jpg">
+<img src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(4).png">
 <br>
 
 #### 超级管理后台系统{
@@ -62,7 +62,7 @@ superadmin-(仅整合的后台管理)
 
 ### 注:存在的BUG  数值越界等问题
 <br>
-<img width="100px;" src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(1).jpg">
+<img width="100px;" src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(1).png">
 <br>
 
 
