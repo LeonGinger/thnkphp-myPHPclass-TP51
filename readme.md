@@ -1,6 +1,6 @@
 ## <center>注：本项目仅用于学习用途，项目中存在大量未知的BUG与安全漏洞，请勿用于商业用途，如出现危险概况概不负责</center>
 
-<img style="width:100px;" src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(1).jpg)">
+<img style="width:100px;" src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(1).jpg">
 基于ThinkPHP5.1框架。https://github.com/top-think/thinkphp<br>
 <br>
 基于课程开发的网站项目-TP51
