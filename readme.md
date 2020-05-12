@@ -59,7 +59,7 @@ superadmin-(仅整合的后台管理)
 四大模块(栏目、用户、文章、公告)增删改查功能<br><br>
 }
 
-### 注:存在的BUG  数值越界等问题
+### 注:
 <br>
 <img  src="https://github.com/LeonGinger/thnkphp-myPHPclass-TP51/blob/master/tp-phphotos/up%20(2).png">
 <br>
